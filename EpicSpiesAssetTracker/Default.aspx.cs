@@ -28,8 +28,8 @@ namespace EpicSpiesAssetTracker
         protected void addButton_Click(object sender, EventArgs e)
         {
             string[] name = (string[])ViewState["Name"];
-            int[] elections = (int[])ViewState["elections"];
-            int[] subterfuge = (int[])ViewState["subterfuge"];
+            int[] elections = (int[])ViewState["Elections"];
+            int[] subterfuge = (int[])ViewState["Subterfuge"];
 
             int newLength = name.Length + 1;
 
@@ -46,7 +46,7 @@ namespace EpicSpiesAssetTracker
             ViewState["Elections"] = elections;
             ViewState["Subterfuge"] = subterfuge;
 
-            resultLabel.Text = String.Format("Total Elections Rigged: {0}<br />Average Acts of Subterfuge per Asset: {1:N2}<br />(Last Asset you Added: {2})",
+            resultLabel.Text = String.Format("Total Elections Rigged: {0}<br />Average Acts of Subterfuge per Asset: {1:N2}<br />Last Asset you Added: {2}",
                 elections.Sum(),
                 subterfuge.Average(),
                 name[newestItem]);
@@ -54,6 +54,7 @@ namespace EpicSpiesAssetTracker
             assetNameTextBox.Text = "";
             electionsTextBox.Text = "";
             subterfugeTextBox.Text = "";
+        
             
         }
     }
